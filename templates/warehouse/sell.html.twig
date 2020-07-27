@@ -1,0 +1,14 @@
+{% extends('base.html.twig') %}
+
+{% block title %}Sell bricks{% endblock %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {{ form(form) }}
+{% endblock %}

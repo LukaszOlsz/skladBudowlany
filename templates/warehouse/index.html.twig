@@ -1,0 +1,34 @@
+{% extends('base.html.twig') %}
+
+{% block title %}Warehouse Detail{% endblock %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <h2>Warehouse detail</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Price</td>
+            <td>Amount</td>
+            <td>Stored date</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for brick in bricks %}
+            <tr>
+                <td>{{ brick.id }}</td>
+                <td>{{ brick.price }}</td>
+                <td>{{ brick.amount }}</td>
+                <td>{{ brick.storedDate | date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
